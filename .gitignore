@@ -21,3 +21,25 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# СВОЁ пока не нужное 
+# папка временных/пока не нужных файлов. для игнора и случайно залитых
+vr/
+
+# js
+src/scripts/*
+src/hooks/useKeyPress.js
+src/hooks/useMultiKeyPress.js
+/src/hooks/useMultiKeyPress.js
+useMultiKeyPress.js
+# hooks/*.js
+# src/hooks/
+
+# scss
+src/styles/all.scss
+src/styles/tagPreCode.scss
+src/styles/themeModesSettingsBtns.scss
+src/styles/themeModesSettingsVars.scss
+
+# помошники
+GitHub Команды.txt
