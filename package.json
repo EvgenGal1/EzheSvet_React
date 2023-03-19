@@ -2,7 +2,7 @@
   "name": "ezhesvet.react",
   "version": "0.1.0",
   "private": true,
-  "main": "index.js",
+  "main": "index.tsx",
   "description": "Различные Сборки Проектов + Примеры Мини Проектов",
   "author": "Evgen Gal",
   "dependencies": {

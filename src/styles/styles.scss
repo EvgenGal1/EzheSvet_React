@@ -169,8 +169,14 @@ $md5NoErr: 576px;
 // изменения стилей Темы и Размеров (--theme, --size) при нажате на кнопки под меню
 // @import "./themeModesSettingsBtns.scss";
 // @import "./themeModesSettingsVars.scss";
+// изменения стилей Темы (theme) при нажате на переключатели в Доп.Меню (новое)
+@import "./settingsThemeColor.scss";
+// стили scroll bara (полоса прокрутки)
+@import "./scrollBar.scss";
 // стили spoler|accordion на scss для раскрытия блока
 @import "./Accordion.scss";
+// стили spoler|accordion на scss для раскрытия блока
+// @import "./Accordion.scss";
 // крупные визуальные эффекты CSS
 // @import "visual.scss";
 // не большие анимации, трансформации, эффекты CSS на всех страницах
@@ -189,4 +195,5 @@ $md5NoErr: 576px;
 // @import "./.scss";
 // общие стили для проектов
 @import "./projects.scss";
-// @import "../Components/layout/Router.scss";
+// общие стили Главных Компонентов (header, main, footer)
+@import "../Components/layout/Router.scss";

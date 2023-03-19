@@ -43,26 +43,26 @@ const Layout = () => {
   return (
     <>
       <Header />
-      {/* <main
+      <main
         className="main "
         style={{
           overflow: "hidden",
           padding: "0px 5%",
         }}
-      > */}
-      {transitions((props, item) => (
-        <animated.main style={props}>
-          {/* <div
+      >
+        {transitions((props, item) => (
+          <animated.main style={props}>
+            <div
               style={{
                 // position: "absolute",
                 width: "100%",
               }}
-            > */}
-          <Outlet location={item} />
-          {/* </div> */}
-        </animated.main>
-      ))}
-      {/* </main> */}
+            >
+              <Outlet location={item} />
+            </div>
+          </animated.main>
+        ))}
+      </main>
       <Footer />
     </>
   );
