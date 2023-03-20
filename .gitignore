@@ -28,6 +28,10 @@ vr/
 .env
 # dtos/
 
+# папки в src
+src/http/*
+src/service/*
+
 # js
 # src/scripts/*
 # src/hooks/useKeyPress.js
