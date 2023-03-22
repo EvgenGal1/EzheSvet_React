@@ -1,9 +1,6 @@
+// шаблон подгрузки svg изо. Осн.props - title(вид svg), col(цвет изо)
+
 import React from "react";
-// import { use  } from "react";
-// export function SvgPath() {
-//   // const [, set] = use();
-//   return <></>;
-// }
 
 export const SvgPath = ({ box, size, cl, col, title }) => {
   return (

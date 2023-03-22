@@ -7,7 +7,12 @@ import { useAllKeysPress } from "../../scripts/hooks/useAllKeysPress";
 // хук для Цветовых Тем (Тёмная/Сетлая/Средняя)
 import { useTheme } from "../../scripts/hooks/useTheme";
 // переключатель для тем
-import { Switcher3btnTheme } from "../ui/Switcher3btnTheme";
+import { Switcher3btnTheme } from "../ui/switcher/Switcher3btnTheme";
+
+// хук для Размеров (Тёмная/Сетлая/Средняя)
+import { useSize } from "../../scripts/hooks/useSize";
+// переключатель для размеров
+import { Switcher4btn } from "../ui/switcher/Switcher4btn";
 
 export function Header() {
   // ЛОГИКА Опред.Комбин.Клвш. для вывода Доп.Меню // ^ нов.версия
@@ -33,7 +38,6 @@ export function Header() {
 
   // ЛОГИКА переключателя Цветовых Тем (dark/light/natural)
   // стат./fn Цветовых Тем (Тёмная/Сетлая/Средняя)
-  // eslint-disable-next-line no-unused-vars
   const { theme, setTheme } = useTheme();
   const handleDarkTheme = () => {
     setTheme("dark");
@@ -43,6 +47,22 @@ export function Header() {
   };
   const handleNaturalTheme = () => {
     setTheme("natural");
+  };
+
+  // ЛОГИКА переключателя Цветовых Тем (dark/light/natural)
+  // стат./fn Цветовых Тем (Тёмная/Сетлая/Средняя)
+  const { size, setSize } = useSize();
+  const handleBigSize = () => {
+    setSize("big");
+  };
+  const handleMidSize = () => {
+    setSize("mid");
+  };
+  const handleSmallSize = () => {
+    setSize("small");
+  };
+  const handleOffSize = () => {
+    setSize("off");
   };
 
   return (
@@ -116,9 +136,12 @@ export function Header() {
                   </a>
                 </span>
                 <span className="menu-bottom__items m-b-items">
-                  <a className="m-b-items__navlink" href="/#">
-                    3
-                  </a>
+                  <Switcher4btn
+                    handleBigSize={handleBigSize}
+                    handleMidSize={handleMidSize}
+                    handleSmallSize={handleSmallSize}
+                    handleOffSize={handleOffSize}
+                  />
                 </span>
                 <span className="menu-bottom__items m-b-items">
                   <Switcher3btnTheme
