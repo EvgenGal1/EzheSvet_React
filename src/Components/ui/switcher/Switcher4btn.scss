@@ -49,6 +49,8 @@
   // знаки и их расположения (первого, всех)
   i + label {
     align-items: flex-end;
+    // отд.правка под высоту dig значка (ставил ниже в коде в положения - & + i { & + label {line-height: inherit | 20px;} } )
+    // line-height: 20px;
   }
   label {
     display: flex;
