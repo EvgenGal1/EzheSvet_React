@@ -46,7 +46,10 @@
     }
   }
 
-  // знаки и их расположения
+  // знаки и их расположения (первого, всех)
+  i + label {
+    align-items: flex-end;
+  }
   label {
     display: flex;
     align-items: center;
@@ -57,7 +60,7 @@
     width: 40%;
     height: 40%;
     // display: inline-block;
-    // background-color: #fad201;
+    background-color: white;
     text-align: center;
     border-radius: 50px;
     & + label {
@@ -91,7 +94,7 @@
     opacity: 0;
 
     &:first-child {
-      z-index: 10;
+      z-index: 2;
       &:checked {
         z-index: 0;
       }
@@ -101,7 +104,7 @@
     // начальная позиция на ._big attr checked в -90'град
     &:checked {
       & + input[type="radio"] {
-        z-index: 10;
+        z-index: 2;
       }
       // третье положение
       & + i {
@@ -193,73 +196,4 @@
       }
     }
   }
-
-  // & > .sw4btn-label {
-  //   position: absolute;
-  //   left: 0;
-  //   top: 0;
-  //   width: 40px;
-  //   height: 40px;
-  //   margin: 0;
-  //   padding: 0;
-  //   opacity: 0;
-
-  //   &:first-child {
-  //     z-index: 10;
-  //     &:checked {
-  //       z-index: 0;
-  //     }
-  //   }
-  //   &:checked {
-  //     & + input[type="radio"] {
-  //       z-index: 10;
-  //     }
-  //     // третье положение
-  //     & + i {
-  //       background-color: #0f0;
-  //       & + .sw4-lab__big,
-  //       & + .sw4-lab__mid,
-  //       & + .sw4-lab__small {
-  //         background: none;
-  //         font-family: 1px;
-  //       }
-  //     }
-  //     // второе положение
-  //     & + input[type="radio"] {
-  //       & + i {
-  //         background-color: #00f;
-  //         & + .sw4-lab__big,
-  //         & + .sw4-lab__mid,
-  //         & + .sw4-lab__off {
-  //           background: none;
-  //           font-family: 2px;
-  //         }
-  //       }
-  //       // первое положение
-  //       & + input[type="radio"] {
-  //         & + i {
-  //           background-color: #ff0;
-  //           & + .sw4-lab__big,
-  //           & + .sw4-lab__small,
-  //           & + .sw4-lab__off {
-  //             background: none;
-  //             font-family: 3px;
-  //           }
-  //         }
-  //         // ? 0 положение
-  //         & + input[type="radio"] {
-  //           & + i {
-  //             background-color: #f00;
-  //             & + .sw4-lab__mid,
-  //             & + .sw4-lab__small,
-  //             & + .sw4-lab__off {
-  //               background: none;
-  //               font-family: 4px;
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 }

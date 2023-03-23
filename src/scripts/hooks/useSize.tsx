@@ -1,8 +1,16 @@
 import { useState, useLayoutEffect } from "react";
 
+// проверка настроек системы для размеров
+const isPrefersSistem = window?.matchMedia(
+  "(prefers-reduced-motion: no-preference)"
+).matches;
+const systemSize = isPrefersSistem ? "dark" : "light";
+
 export const useSize = () => {
   // сост Темы из LocStr или из Сист.Настр
-  const [size, setSize] = useState(localStorage.getItem("--size") || ""); // big, mid, small, off
+  const [size, setSize] = useState(
+    localStorage.getItem("--size") || systemSize
+  ); // big, mid, small, off
   // console.log("LocStr ", size);
 
   useLayoutEffect(() => {
