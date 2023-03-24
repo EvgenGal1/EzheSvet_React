@@ -46,6 +46,7 @@ body {
     var(--off, 90px);
   --height: var(--big, 35px) var(--mid, 30px) var(--small, 25px)
     var(--off, 25px);
+  --head-pad: var(--big, 1%) var(--mid, 0.5%) var(--small, 0.3%) var(--off, 0%);
   --font-size-big: var(--big, 22px) var(--mid, 18px) var(--small, 15px)
     var(--off, 15px);
   --font-size-mid: var(--big, 16px) var(--mid, 14px) var(--small, 11px)
@@ -76,10 +77,10 @@ body {
     var(--off, 26px);
   --sw3btn-font-size: var(--big, 26px) var(--mid, 22px) var(--small, 18px)
     var(--off, 18px);
-  --sw3btn-top: var(--big, -1px) var(--mid, 4px) var(--small, -3px)
-    var(--off, -3px);
-  --sw3btn-neut: var(--big, 1px) var(--mid, 0px) var(--small, -1px)
-    var(--off, -1px);
+  --sw3btn-top: var(--big, 3px) var(--mid, 3px) var(--small, 2px)
+    var(--off, 2px);
+  --sw3btn-neut: var(--big, -1px) var(--mid, -1px) var(--small, 1px)
+    var(--off, 1px);
   --sw3btn-befo: var(--big, 25px) var(--mid, 22px) var(--small, 19px)
     var(--off, 19px);
   --sw4btn-box-sh: var(--big, -24px 11px 0 #707070)
@@ -87,6 +88,8 @@ body {
     var(--off, 19.5px 8px 0 #707070);
   --sw4btn-top: var(--big, 4px) var(--mid, -2px) var(--small, -3px)
     var(--off, 5px);
+  --sw4btn-margin: var(--big, 0px 18px 0px 34px) var(--mid, 0px 14px 0px 30px)
+    var(--small, 0px 6px 0px 26px) var(--off, 0px 6px 0px 26px);
   --sw4btn-left: var(--big, 0px) var(--mid, 0px) var(--small, -14px)
     var(--off, -14px);
   --bot-it-fir-mar: var(--big, 30px) var(--mid, 25px) var(--small, 20px)
@@ -98,75 +101,155 @@ body {
 }
 
 // ОБЩИЕ СТИЛИ
-body {
-  hr {
-    margin-block-start: var(--mar-bl);
-    margin-block-end: var(--mar-bl);
-    border-width: var(--bor-wid);
+hr {
+  margin-block-start: var(--mar-bl);
+  margin-block-end: var(--mar-bl);
+  border-width: var(--bor-wid);
+}
+// шапка
+header {
+  .header-container {
+    padding: var(--head-pad) !important ;
   }
+  .header__menu {
+    &-bottom .menu-bottom__items,
+    &-top .menu-top__items {
+      width: var(--width);
+      height: var(--height);
+      font-size: var(--font-size-big);
+      // font-weight: var(--font-weight);
+      // border: var(--border);
+      border-radius: var(--border-radius);
+      margin: 0px 0px 0px var(--bot-it-fir-mar);
+      & > a {
+        width: 100%;
+        height: 100%;
+      }
+      &:not(:first-child) {
+      }
+      &:last-child {
+        // width: 30px;
+        // margin: 0px var(--bot-it-las-mar-rig) 0px var(--bot-it-las-mar-lef);
+      }
+      // .sw4btn 4х кнп. (data-size - Размеры)
+      &:has([class$="sw4btn"]) {
+        // margin: 0px 14px 0px 30px;
+        margin: var(--sw4btn-margin);
+      }
+    }
+  }
+}
+
+// ПЕРЕКЛЮЧАТЕЛИ
+// 4х кнп. (data-size - Размеры)
+.sw4btn {
+  height: var(--height);
+  width: var(--height);
+  // .sw4btn-rotate {
+  //   height: var(--height);
+  //   width: var(--height);
+  // }
+  // .sw4btn {
+  & > input[type="radio"],
+  & i {
+    height: var(--height);
+    width: var(--height);
+  }
+  // !
+  & i {
+    &:before {
+      box-shadow: var(--sw4btn-box-sh);
+    }
+    &:after {
+      top: calc(50% - var(--sw4btn-top));
+      left: var(--sw4btn-left);
+    }
+  }
+}
+// 3х кнп. (data-theme - Цветовые Темы)
+.sw3btn {
+  .sw3btn {
+    height: var(--height);
+  }
+  .sw3btn-slider:before {
+    font-size: var(--sw3btn-befo);
+    top: var(--sw3btn-top);
+  }
+  .sw3btn-radio__light:checked ~ .sw3btn-slider:before {
+    left: calc(100% - var(--sw3btn-aft));
+  }
+  .sw3btn-radio__neutral:checked ~ .sw3btn-slider:before {
+    left: calc(100% / 3 - var(--sw3btn-neut));
+  }
+  // .sw3btn-radio__dark:checked ~ .sw3btn-slider:before {
+  // background-color: #b40000;
+  // }
+
+  // прописал цвет напрямую чтоб вкл после перезагр пр пустом LocalStorage
+  .sw3btn-radio__dark ~ .sw3btn-slider:before {
+    font-size: var(--sw3btn-befo);
+  }
+  // .sw3btn-slider:before {
+  // left: var(--sw3btn-top);
+  // }
+
   .helloys {
     h1,
     h2 {
       margin: 0px 0px var(--mar-bl);
     }
   }
-  header {
-    .header__menu- {
-      &bottom .menu-bottom__items,
-      &top .menu-top__items {
-        width: var(--width);
-        height: var(--height);
-        font-size: var(--font-size-big);
-        // font-weight: var(--font-weight);
-        // border: var(--border);
-        border-radius: var(--border-radius);
-        & > a {
-          width: 100%;
-          height: 100%;
-        }
-      }
+}
+.m-s-switcher {
+  // -1(черно зелёный)
+  &-1 {
+    &:before,
+    &::after {
+      top: var(--switcher-1-top);
     }
-    // top
-    .menu__top .menu-list {
-      .menu-list__items {
-        // height: var(--height);
-        // font-size: var(--font-size-big);
-        .items__link {
-          width: var(--width);
-          height: var(--height);
-          font-size: var(--font-size-big);
-          // font-weight: var(--font-weight);
-          border: var(--border);
-          border-radius: var(--border-radius);
-        }
-      }
-      .items__sub {
-        width: var(--width);
-        .sub__li {
-          &-a {
-            font-size: var(--font-size-mid);
-          }
-        }
-      }
-    }
-    // <m-s-switcher> (кнопки)-------------------------------------------------------------
-    .header__menu-bottom {
-      .menu-bottom__items {
-        height: var(--height);
-        width: var(--width-swit);
-        &:not(:first-child) {
-          margin: 0px 0px 0px var(--bot-it-fir-mar);
-        }
-        &:last-child {
-          // width: 30px;
-          margin: 0px var(--bot-it-las-mar-rig) 0px var(--bot-it-las-mar-lef);
-        }
-      }
+    label {
+      height: var(--switcher-1-lab);
     }
   }
-  // ПЕРЕКЛЮЧАТЕЛИ
-  // (4 позиции - круг --size)
-  .sw4btn {
+  // -2,3(черно белые)
+  &.sw-blwh {
+    // ??? не раб - после прокрутки sw4btn не востанав размер, приходится и здесь прописывать перем heigth, почемуто в menu-set__items не хватает
+    height: var(--height);
+    .swblwh {
+      // height: var(--height);
+      input {
+        // height: var(--height);
+        &:before {
+          left: var(--swblwh-2-lef);
+          font-size: var(--swblwh-2-fo-si);
+        }
+        &:after {
+          right: var(--swblwh-2-rig);
+          font-size: var(--swblwh-2-fo-si);
+        }
+      }
+    }
+    // .swblwh-2 {
+    // input[type="swblwh-2"] {
+    // }
+    // }
+    .swblwh-3 label {
+      height: var(--height);
+    }
+  }
+  // -4(NISNOM 1 - VX)
+  &-4 {
+    .toggle-button--aava label {
+      height: var(--height);
+      line-height: var(--height);
+    }
+    .toggle-button--aava .toggle-button__icon {
+      height: var(--height);
+      width: var(--height);
+    }
+  }
+  // -7(3 позиции - круг --size)
+  &.sw4btn {
     height: var(--height);
     width: var(--height);
     // .sw4btn-rotate {
@@ -189,106 +272,6 @@ body {
         left: var(--sw4btn-left);
       }
     }
-  }
-  // -5(3 позиции - горизонт --theme)
-  .sw3btn {
-    .sw3btn {
-      height: var(--height);
-    }
-    .sw3btn-slider:before {
-      font-size: var(--sw3btn-befo);
-    }
-    .sw3btn-radio__light:checked ~ .sw3btn-slider:before {
-      left: calc(100% - var(--sw3btn-aft));
-    }
-    .sw3btn-radio__neutral:checked ~ .sw3btn-slider:before {
-      left: calc(100% / 3 - var(--sw3btn-neut));
-    }
-    // .sw3btn-radio__dark:checked ~ .sw3btn-slider:before {
-    // background-color: #b40000;
     // }
-
-    // прописал цвет напрямую чтоб вкл после перезагр пр пустом LocalStorage
-    .sw3btn-radio__dark ~ .sw3btn-slider:before {
-      font-size: var(--sw3btn-befo);
-    }
-    // .sw3btn-slider:before {
-    // left: var(--sw3btn-top);
-    // }
-  }
-  .m-s-switcher {
-    // -1(черно зелёный)
-    &-1 {
-      &:before,
-      &::after {
-        top: var(--switcher-1-top);
-      }
-      label {
-        height: var(--switcher-1-lab);
-      }
-    }
-    // -2,3(черно белые)
-    &.sw-blwh {
-      // ??? не раб - после прокрутки sw4btn не востанав размер, приходится и здесь прописывать перем heigth, почемуто в menu-set__items не хватает
-      height: var(--height);
-      .swblwh {
-        // height: var(--height);
-        input {
-          // height: var(--height);
-          &:before {
-            left: var(--swblwh-2-lef);
-            font-size: var(--swblwh-2-fo-si);
-          }
-          &:after {
-            right: var(--swblwh-2-rig);
-            font-size: var(--swblwh-2-fo-si);
-          }
-        }
-      }
-      // .swblwh-2 {
-      // input[type="swblwh-2"] {
-      // }
-      // }
-      .swblwh-3 label {
-        height: var(--height);
-      }
-    }
-    // -4(NISNOM 1 - VX)
-    &-4 {
-      .toggle-button--aava label {
-        height: var(--height);
-        line-height: var(--height);
-      }
-      .toggle-button--aava .toggle-button__icon {
-        height: var(--height);
-        width: var(--height);
-      }
-    }
-    // -7(3 позиции - круг --size)
-    &.sw4btn {
-      height: var(--height);
-      width: var(--height);
-      // .sw4btn-rotate {
-      //   height: var(--height);
-      //   width: var(--height);
-      // }
-      // .sw4btn {
-      & > input[type="radio"],
-      & i {
-        height: var(--height);
-        width: var(--height);
-      }
-      // !
-      & i {
-        &:before {
-          box-shadow: var(--sw4btn-box-sh);
-        }
-        &:after {
-          top: calc(50% - var(--sw4btn-top));
-          left: var(--sw4btn-left);
-        }
-      }
-      // }
-    }
   }
 }

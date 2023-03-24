@@ -78,7 +78,7 @@ export function Header() {
                 src={require("../../img/logo/SuhoEd_mini.png")}
                 alt=""
               />
-              <h3>СухоЕд</h3>
+              <h1>СухоЕд</h1>
             </Link>
           </div>
           {/* ОБЩ. МЕНЮ */}
@@ -136,18 +136,18 @@ export function Header() {
                   </a>
                 </span>
                 <span className="menu-bottom__items m-b-items">
+                  <Switcher3btnTheme
+                    handleDarkTheme={handleDarkTheme}
+                    handleLightTheme={handleLightTheme}
+                    handleNaturalTheme={handleNaturalTheme}
+                  />
+                </span>
+                <span className="menu-bottom__items m-b-items">
                   <Switcher4btn
                     handleBigSize={handleBigSize}
                     handleMidSize={handleMidSize}
                     handleSmallSize={handleSmallSize}
                     handleOffSize={handleOffSize}
-                  />
-                </span>
-                <span className="menu-bottom__items m-b-items">
-                  <Switcher3btnTheme
-                    handleDarkTheme={handleDarkTheme}
-                    handleLightTheme={handleLightTheme}
-                    handleNaturalTheme={handleNaturalTheme}
                   />
                 </span>
                 {/* <MultiKeysPressed
