@@ -65,13 +65,13 @@ body {
     var(--off, 5%);
   --switcher-1-lab: var(--big, 32px) var(--mid, 27px) var(--small, 22px)
     var(--off, 22px);
-  --swblwh-2-lef: var(--big, 10px) var(--mid, 9px) var(--small, 8px)
+  --sw2blwh-lef: var(--big, 10px) var(--mid, 9px) var(--small, 8px)
     var(--off, 8px);
-  --swblwh-2-lef: var(--big, 14px) var(--mid, 13px) var(--small, 12px)
+  --sw2blwh-lef: var(--big, 14px) var(--mid, 13px) var(--small, 12px)
     var(--off, 12px);
-  --swblwh-2-rig: var(--big, 10px) var(--mid, 9px) var(--small, 8px)
+  --sw2blwh-rig: var(--big, 10px) var(--mid, 9px) var(--small, 8px)
     var(--off, 8px);
-  --swblwh-2-fo-si: var(--big, 17px) var(--mid, 15px) var(--small, 13px)
+  --sw2blwh-fo-si: var(--big, 17px) var(--mid, 15px) var(--small, 13px)
     var(--off, 13px);
   --sw3btn-aft: var(--big, 33.5px) var(--mid, 30px) var(--small, 26px)
     var(--off, 26px);
@@ -168,9 +168,8 @@ header {
 }
 // 3х кнп. (data-theme - Цветовые Темы)
 .sw3btn {
-  .sw3btn {
-    height: var(--height);
-  }
+  width: var(--width) !important;
+  height: var(--height) !important;
   .sw3btn-slider:before {
     font-size: var(--sw3btn-befo);
     top: var(--sw3btn-top);
@@ -181,25 +180,35 @@ header {
   .sw3btn-radio__neutral:checked ~ .sw3btn-slider:before {
     left: calc(100% / 3 - var(--sw3btn-neut));
   }
-  // .sw3btn-radio__dark:checked ~ .sw3btn-slider:before {
-  // background-color: #b40000;
-  // }
-
   // прописал цвет напрямую чтоб вкл после перезагр пр пустом LocalStorage
   .sw3btn-radio__dark ~ .sw3btn-slider:before {
     font-size: var(--sw3btn-befo);
   }
-  // .sw3btn-slider:before {
-  // left: var(--sw3btn-top);
-  // }
-
-  .helloys {
-    h1,
-    h2 {
-      margin: 0px 0px var(--mar-bl);
+}
+// 2 перекат (черно белые)
+.sw2blwh {
+  // height: var(--height);
+  input {
+    // height: var(--height);
+    &:before {
+      left: var(--sw2blwh-lef) !important;
+      font-size: var(--sw2blwh-fo-si);
+    }
+    &:after {
+      right: var(--sw2blwh-rig) !important;
+      font-size: var(--sw2blwh-fo-si);
     }
   }
 }
+
+// старые из ЕжеСвет WebPack
+.helloys {
+  h1,
+  h2 {
+    margin: 0px 0px var(--mar-bl);
+  }
+}
+
 .m-s-switcher {
   // -1(черно зелёный)
   &-1 {
@@ -215,22 +224,9 @@ header {
   &.sw-blwh {
     // ??? не раб - после прокрутки sw4btn не востанав размер, приходится и здесь прописывать перем heigth, почемуто в menu-set__items не хватает
     height: var(--height);
-    .swblwh {
-      // height: var(--height);
-      input {
-        // height: var(--height);
-        &:before {
-          left: var(--swblwh-2-lef);
-          font-size: var(--swblwh-2-fo-si);
-        }
-        &:after {
-          right: var(--swblwh-2-rig);
-          font-size: var(--swblwh-2-fo-si);
-        }
-      }
-    }
-    // .swblwh-2 {
-    // input[type="swblwh-2"] {
+
+    // .sw2blwh-2 {
+    // input[type="sw2blwh-2"] {
     // }
     // }
     .swblwh-3 label {

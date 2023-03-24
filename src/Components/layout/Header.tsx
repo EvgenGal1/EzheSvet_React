@@ -14,6 +14,9 @@ import { useSize } from "../../scripts/hooks/useSize";
 // переключатель для размеров
 import { Switcher4btn } from "../ui/switcher/Switcher4btn";
 
+// переключатель черно-белый
+import { Switcher2btn } from "../ui/switcher/Switcher2btn";
+
 export function Header() {
   // ЛОГИКА Опред.Комбин.Клвш. для вывода Доп.Меню // ^ нов.версия
   const saved = localStorage.getItem("--dopMenu");
@@ -131,9 +134,7 @@ export function Header() {
                   </a>
                 </span>
                 <span className="menu-bottom__items m-b-items">
-                  <a className="m-b-items__navlink" href="/package.json#">
-                    2
-                  </a>
+                  <Switcher2btn />
                 </span>
                 <span className="menu-bottom__items m-b-items">
                   <Switcher3btnTheme
