@@ -28,16 +28,18 @@ export function Header() {
     userKeys: ["d", "o", "p", "m", "n"],
     order: true,
   });
+  // врем.кнп.для упрощ.вкл.доп.меню
+  const [vrKNP, setVrKNP] = useState(false);
   // отслеж. измен.с записью в LS
   useEffect(() => {
-    if ((combinePress || pressCombine) === true) {
+    if ((combinePress || pressCombine || vrKNP) === true) {
       setPressCombine(true);
       localStorage.setItem("--dopMenu", JSON.stringify(true));
-    } else if ((combinePress || pressCombine) === false) {
+    } else if ((combinePress || pressCombine || vrKNP) === false) {
       setPressCombine(false);
       localStorage.setItem("--dopMenu", JSON.stringify(false));
     }
-  }, [combinePress, pressCombine]);
+  }, [combinePress, pressCombine, vrKNP]);
 
   // ЛОГИКА переключателя Цветовых Тем (dark/light/natural)
   // стат./fn Цветовых Тем (Тёмная/Сетлая/Средняя)
@@ -121,7 +123,7 @@ export function Header() {
               </span>
             </nav>
             {/* НИЖНЕЕ/ДОП.МЕНЮ */}
-            {pressCombine && (
+            {pressCombine /* || vrKNP */ /* showDopMN */ && (
               <nav className="header__menu-bottom menu-bottom flex flex-wrap justify-between items-center mt-4">
                 <span
                   onClick={() => {
@@ -162,6 +164,17 @@ export function Header() {
               </nav>
             )}
             {/* {pressKeyL && pressKeyJ && pressKeyG && ( */}
+          </div>
+          {/* врем.кнп.для упрощ.вкл.доп.меню */}
+          <div
+            className="miniArrow"
+            onClick={() => {
+              // setVrKNP(!vrKNP);
+              // handleVrKNP(!vrKNP);
+              setPressCombine(!pressCombine);
+            }}
+          >
+            &lt;
           </div>
         </div>
       </header>
