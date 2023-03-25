@@ -4,7 +4,7 @@ import { useState, useLayoutEffect } from "react";
 const isPrefersSistem = window?.matchMedia(
   "(prefers-reduced-motion: no-preference)"
 ).matches;
-const systemSize = isPrefersSistem ? "dark" : "light";
+const systemSize = isPrefersSistem ? "mid" : "big";
 
 export const useSize = () => {
   // сост Темы из LocStr или из Сист.Настр
