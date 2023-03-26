@@ -1,0 +1,23 @@
+.sw1btn {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+  height: inherit;
+  border-radius: 25px;
+  cursor: pointer;
+  input {
+    visibility: hidden;
+    position: absolute;
+  }
+  label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    letter-spacing: -1px;
+    background: blue;
+  }
+}

@@ -68,6 +68,9 @@
       &:first-child {
         margin-left: 15px;
       }
+      &:has([class$="sw1btn"]) {
+        width: 30px;
+      }
       // .sw4btn 4х кнп. (data-size - Размеры)
       &:has([class$="sw4btn"]) {
         width: 30px;

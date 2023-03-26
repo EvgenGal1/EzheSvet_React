@@ -141,28 +141,29 @@ header {
 }
 
 // ПЕРЕКЛЮЧАТЕЛИ
-// 4х кнп. (data-size - Размеры)
-.sw4btn {
+// 1х кнп. (доп.меню)
+.sw1btn {
   height: var(--height);
   width: var(--height);
-  // .sw4btn-rotate {
-  //   height: var(--height);
-  //   width: var(--height);
-  // }
-  // .sw4btn {
-  & > input[type="radio"],
-  & i {
-    height: var(--height);
-    width: var(--height);
-  }
-  // !
-  & i {
+}
+// 2х кнп. (черно белые)
+.sw2blwh {
+  // height: var(--height);
+  input {
+    // height: var(--height);
     &:before {
-      box-shadow: var(--sw4btn-box-sh);
+      left: var(--sw2blwh-lef) !important;
+      font-size: var(--sw2blwh-fo-si);
     }
     &:after {
-      top: calc(50% - var(--sw4btn-top));
-      left: var(--sw4btn-left);
+      right: var(--sw2blwh-rig) !important;
+      font-size: var(--sw2blwh-fo-si);
+    }
+    &:checked + label {
+      right: var(--sw2blwh-chek);
+    }
+    &:not(:checked) + label {
+      left: var(--sw2blwh-chek);
     }
   }
 }
@@ -185,24 +186,28 @@ header {
     font-size: var(--sw3btn-befo);
   }
 }
-// 2 перекат (черно белые)
-.sw2blwh {
-  // height: var(--height);
-  input {
-    // height: var(--height);
+// 4х кнп. (data-size - Размеры)
+.sw4btn {
+  height: var(--height);
+  width: var(--height);
+  // .sw4btn-rotate {
+  //   height: var(--height);
+  //   width: var(--height);
+  // }
+  // .sw4btn {
+  & > input[type="radio"],
+  & i {
+    height: var(--height);
+    width: var(--height);
+  }
+  // !
+  & i {
     &:before {
-      left: var(--sw2blwh-lef) !important;
-      font-size: var(--sw2blwh-fo-si);
+      box-shadow: var(--sw4btn-box-sh);
     }
     &:after {
-      right: var(--sw2blwh-rig) !important;
-      font-size: var(--sw2blwh-fo-si);
-    }
-    &:checked + label {
-      right: var(--sw2blwh-chek);
-    }
-    &:not(:checked) + label {
-      left: var(--sw2blwh-chek);
+      top: calc(50% - var(--sw4btn-top));
+      left: var(--sw4btn-left);
     }
   }
 }
