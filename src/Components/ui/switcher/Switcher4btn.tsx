@@ -1,12 +1,47 @@
-import React from "react";
+import React, { useState, useLayoutEffect } from "react";
+
+// хук для Размеров (Большой, Средний, Маленький,Выключен)
+import { useSize } from "../../../scripts/hooks/useSize";
+
 import "./Switcher4btn.scss";
 
-export const Switcher4btn = ({
-  handleBigSize,
-  handleMidSize,
-  handleSmallSize,
-  handleOffSize,
-}) => {
+export const Switcher4btn = () => {
+  // ЛОГИКА отрисовки checkbox в checked по body.data-size
+  const [checkedBox, setCheckedBox] = useState("");
+  const handleChange = (nm: string) => {
+    setCheckedBox(nm);
+  };
+  useLayoutEffect(() => {
+    const dataTheme = document.body.getAttribute("data-size");
+    if (dataTheme === "big") {
+      setCheckedBox("big");
+    }
+    if (dataTheme === "mid") {
+      setCheckedBox("mid");
+    }
+    if (dataTheme === "small") {
+      setCheckedBox("small");
+    }
+    if (dataTheme === "off") {
+      setCheckedBox("off");
+    }
+  }, []);
+
+  // ЛОГИКА переключателя Размеров (big/mid/small/off)
+  // стат./fn Размеров (Большой/Средний/Маленький/Выключен)
+  const { size, setSize } = useSize();
+  const handleBigSize = () => {
+    setSize("big");
+  };
+  const handleMidSize = () => {
+    setSize("mid");
+  };
+  const handleSmallSize = () => {
+    setSize("small");
+  };
+  const handleOffSize = () => {
+    setSize("off");
+  };
   return (
     <div className="sw4btn">
       <input
@@ -16,6 +51,10 @@ export const Switcher4btn = ({
         name="--size"
         value="_big"
         onClick={() => handleBigSize()}
+        checked={checkedBox === "big" ? true : false}
+        onChange={() => {
+          handleChange("big");
+        }}
       />
       <input
         className="sw4btn-input sw4-inp__mid"
@@ -25,6 +64,10 @@ export const Switcher4btn = ({
         value="_mid"
         defaultChecked
         onClick={() => handleMidSize()}
+        checked={checkedBox === "mid" ? true : false}
+        onChange={() => {
+          handleChange("mid");
+        }}
       />
       <input
         className="sw4btn-input sw4-inp__small"
@@ -33,6 +76,10 @@ export const Switcher4btn = ({
         name="--size"
         value="_small"
         onClick={() => handleSmallSize()}
+        checked={checkedBox === "small" ? true : false}
+        onChange={() => {
+          handleChange("small");
+        }}
       />
       <input
         className="sw4btn-input sw4-inp__off"
@@ -41,18 +88,11 @@ export const Switcher4btn = ({
         name="--size"
         value="_off"
         onClick={() => handleOffSize()}
+        checked={checkedBox === "off" ? true : false}
+        onChange={() => {
+          handleChange("off");
+        }}
       />
-      {/* <label className="sw3btn-label sw3btn__light" htmlFor="_light">
-        +
-      </label>
-      <input
-        id="_light"
-        className="sw3btn-radio__light"
-        type="radio"
-        name="--theme"
-        value="_light"
-        onClick={() => handleLightTheme()}
-      /> */}
       <i></i>
       <label className="sw4btn-label sw4-lab__big" htmlFor="_big">
         o
