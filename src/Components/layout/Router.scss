@@ -14,7 +14,7 @@
 .header {
   position: relative;
   .header-container {
-    padding: 1%;
+    padding: 0.5%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -64,7 +64,12 @@
     }
     .menu-top__items,
     .menu-bottom__items {
+      width: 100px;
+      height: 30px;
+      font-size: 18px;
+      /* border-radius: var(--border-radius); */
       margin-left: 30px;
+      margin: 0px 0px 0px 25px;
       &:first-child {
         margin-left: 15px;
       }

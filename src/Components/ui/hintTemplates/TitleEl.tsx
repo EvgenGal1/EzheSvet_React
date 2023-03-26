@@ -5,6 +5,7 @@ export const TitleEl = ({ text }) => {
         width: "100%",
         display: "flex",
         justifyContent: "center",
+        cursor: "pointer",
       }}
     >
       {text}

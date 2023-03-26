@@ -6,6 +6,11 @@ import { useAllKeysPress } from "../../scripts/hooks/useAllKeysPress";
 // переключатель видимости Доп.Меню
 import { Switcher1btn } from "../ui/switcher/Switcher1btn";
 
+// переключатель черно-белый
+import { Switcher2btn } from "../ui/switcher/Switcher2btn";
+// подсказка по наведению мыши
+import { TitleEl } from "../ui/hintTemplates/TitleEl";
+
 // хук для Цветовых Тем (Тёмная/Сетлая/Средняя)
 import { useTheme } from "../../scripts/hooks/useTheme";
 // переключатель для тем
@@ -15,11 +20,6 @@ import { Switcher3btnTheme } from "../ui/switcher/Switcher3btnTheme";
 import { useSize } from "../../scripts/hooks/useSize";
 // переключатель для размеров
 import { Switcher4btn } from "../ui/switcher/Switcher4btn";
-
-// переключатель черно-белый
-import { Switcher2btn } from "../ui/switcher/Switcher2btn";
-// подсказка по наведению мыши
-import { TitleEl } from "../ui/hintTemplates/TitleEl";
 
 export function Header() {
   // ЛОГИКА Опред.Комбин.Клвш. для вывода Доп.Меню // ^ нов.версия
@@ -47,33 +47,35 @@ export function Header() {
   const [isHovering, setIsHovering] = useState(false);
 
   // ЛОГИКА переключателя Цветовых Тем (dark/light/natural)
+  useTheme();
   // стат./fn Цветовых Тем (Тёмная/Сетлая/Средняя)
-  const { theme, setTheme } = useTheme();
-  const handleDarkTheme = () => {
-    setTheme("dark");
-  };
-  const handleLightTheme = () => {
-    setTheme("light");
-  };
-  const handleNaturalTheme = () => {
-    setTheme("natural");
-  };
+  // const { theme, setTheme } = useTheme();
+  // const handleDarkTheme = () => {
+  //   setTheme("dark");
+  // };
+  // const handleLightTheme = () => {
+  //   setTheme("light");
+  // };
+  // const handleNaturalTheme = () => {
+  //   setTheme("natural");
+  // };
 
   // ЛОГИКА переключателя Размеров (big/mid/small/off)
+  useSize();
   // стат./fn Размеров (Большой/Средний/Маленький/Выключен)
-  const { size, setSize } = useSize();
-  const handleBigSize = () => {
-    setSize("big");
-  };
-  const handleMidSize = () => {
-    setSize("mid");
-  };
-  const handleSmallSize = () => {
-    setSize("small");
-  };
-  const handleOffSize = () => {
-    setSize("off");
-  };
+  // const { size, setSize } = useSize();
+  // const handleBigSize = () => {
+  //   setSize("big");
+  // };
+  // const handleMidSize = () => {
+  //   setSize("mid");
+  // };
+  // const handleSmallSize = () => {
+  //   setSize("small");
+  // };
+  // const handleOffSize = () => {
+  //   setSize("off");
+  // };
 
   return (
     <>
@@ -154,6 +156,7 @@ export function Header() {
                   <Switcher2btn />
                   {isHovering && <TitleEl text={"не занят"} />}
                 </span>
+                {/* переключатель Цветовых Тем (dark/light/natural) */}
                 <span
                   className="menu-bottom__items m-b-items"
                   onMouseEnter={() => {
@@ -163,11 +166,7 @@ export function Header() {
                     setIsHovering(!isHovering);
                   }}
                 >
-                  <Switcher3btnTheme
-                    handleDarkTheme={handleDarkTheme}
-                    handleLightTheme={handleLightTheme}
-                    handleNaturalTheme={handleNaturalTheme}
-                  />
+                  <Switcher3btnTheme />
                   {isHovering && <TitleEl text={"Цв.Темы"} />}
                 </span>
                 <span
@@ -179,12 +178,7 @@ export function Header() {
                     setIsHovering(!isHovering);
                   }}
                 >
-                  <Switcher4btn
-                    handleBigSize={handleBigSize}
-                    handleMidSize={handleMidSize}
-                    handleSmallSize={handleSmallSize}
-                    handleOffSize={handleOffSize}
-                  />
+                  <Switcher4btn />
                   {isHovering && <TitleEl text={"Размеры"} />}
                 </span>
               </nav>

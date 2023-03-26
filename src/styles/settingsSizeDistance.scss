@@ -46,7 +46,8 @@ body {
     var(--off, 90px);
   --height: var(--big, 35px) var(--mid, 30px) var(--small, 25px)
     var(--off, 25px);
-  --head-pad: var(--big, 1%) var(--mid, 0.5%) var(--small, 0.3%) var(--off, 0%);
+  --head-pad: var(--big, 0.7%) var(--mid, 0.5%) var(--small, 0.3%)
+    var(--off, 0%);
   --font-size-big: var(--big, 22px) var(--mid, 18px) var(--small, 15px)
     var(--off, 15px);
   --font-size-mid: var(--big, 16px) var(--mid, 14px) var(--small, 11px)
@@ -79,7 +80,7 @@ body {
     var(--off, 18px);
   --sw3btn-top: var(--big, 3px) var(--mid, 3px) var(--small, 2px)
     var(--off, 2px);
-  --sw3btn-neut: var(--big, -1px) var(--mid, -1px) var(--small, 1px)
+  --sw3btn-neut: var(--big, -2px) var(--mid, 0px) var(--small, 1px)
     var(--off, 1px);
   --sw3btn-befo: var(--big, 25px) var(--mid, 22px) var(--small, 19px)
     var(--off, 19px);
@@ -88,8 +89,8 @@ body {
     var(--off, 19.5px 8px 0 #707070);
   --sw4btn-top: var(--big, 4px) var(--mid, -2px) var(--small, -3px)
     var(--off, 5px);
-  --sw4btn-margin: var(--big, 0px 18px 0px 34px) var(--mid, 0px 14px 0px 30px)
-    var(--small, 0px 6px 0px 26px) var(--off, 0px 6px 0px 26px);
+  --sw4btn-margin: var(--big, 0px 18px 0px 44px) var(--mid, 0px 14px 0px 42px)
+    var(--small, 0px 6px 0px 30px) var(--off, 0px 6px 0px 30px);
   --sw4btn-left: var(--big, 0px) var(--mid, 0px) var(--small, -14px)
     var(--off, -14px);
   --bot-it-fir-mar: var(--big, 30px) var(--mid, 25px) var(--small, 20px)
@@ -181,10 +182,9 @@ header {
   .sw3btn-radio__neutral:checked ~ .sw3btn-slider:before {
     left: calc(100% / 3 - var(--sw3btn-neut));
   }
-  // прописал цвет напрямую чтоб вкл после перезагр пр пустом LocalStorage
-  .sw3btn-radio__dark ~ .sw3btn-slider:before {
-    font-size: var(--sw3btn-befo);
-  }
+  // .sw3btn-radio__dark ~ .sw3btn-slider:before {
+  //   left: calc(100% - var(--sw3btn-aft));
+  // }
 }
 // 4х кнп. (data-size - Размеры)
 .sw4btn {

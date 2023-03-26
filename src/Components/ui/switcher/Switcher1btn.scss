@@ -1,10 +1,5 @@
 .sw1btn {
-  position: relative;
-  display: block;
-  width: 30px;
   height: 30px;
-  height: inherit;
-  border-radius: 25px;
   cursor: pointer;
   input {
     visibility: hidden;
@@ -18,6 +13,7 @@
     align-items: center;
     border-radius: 50%;
     letter-spacing: -1px;
+    cursor: pointer;
     background: blue;
   }
 }
