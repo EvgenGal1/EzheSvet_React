@@ -63,7 +63,6 @@ export const Switcher4btn = () => {
         id="_mid"
         name="--size"
         value="_mid"
-        defaultChecked
         onClick={() => handleMidSize()}
         checked={checkedBox === "mid" ? true : false}
         onChange={() => {

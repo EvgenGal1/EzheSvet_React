@@ -146,6 +146,14 @@ header {
 .sw1btn {
   height: var(--height);
   width: var(--height);
+  label {
+    span {
+      svg {
+        height: var(--height);
+        width: var(--height);
+      }
+    }
+  }
 }
 // 2х кнп. (черно белые)
 .sw2blwh {

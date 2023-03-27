@@ -1,4 +1,24 @@
+// смена изо при наведении на ребёнка нижнего меню где есть .sw1btn
+.m-b-items:has([class="sw1btn"]) {
+  &:hover {
+    svg {
+      &.round {
+        width: 0%;
+        height: 0%;
+        visibility: hidden;
+        opacity: 0;
+      }
+      &.cross {
+        width: 100%;
+        height: 100%;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+}
 .sw1btn {
+  width: 30px;
   height: 30px;
   cursor: pointer;
   input {
@@ -6,44 +26,24 @@
     position: absolute;
   }
   label {
-    width: 100%;
-    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     background: #f4a900;
     border-radius: 50%;
-    letter-spacing: -1px;
-    // background-image: url("../../../img/miniElem/circle5.png");
     cursor: pointer;
-    .sw1btn__span {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      border: 3px solid #6b0000;
-      border-color: #6b0000 !important;
+  }
+  svg {
+    width: inherit;
+    &.round {
+      width: 100%;
+      height: 100%;
+      visibility: visible;
+      opacity: 1;
     }
-    // .sw1btn__img{
-    //   width: 25px;
-    //   transform: rotate(45deg);
-    //   font-size: 25px;
-    //   filter: opacity(0.5) drop-shadow(0px 0px 0px #4b0000);
-    //   background-image: url("../../../img/miniElem/circle5.png");
-    // }
-    &:hover {
-      .sw1btn__span {
-        // border-radius: 50%;
-        border: 3px solid #2b0000;
-        border-color: #6b0000 !important;
-        background-image: url("../../../img/miniElem/cross.png");
-      }
+    &.cross {
+      width: 0%;
+      height: 0%;
+      visibility: hidden;
+      opacity: 0;
     }
-    // &:before {
-    //   content: "1";
-    //   background-image: url("../../../img/miniElem/cross.png");
-    // }
-    // &:after {
-    //   content: "2";
-    // }
   }
 }
