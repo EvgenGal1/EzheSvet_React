@@ -201,7 +201,8 @@ body[data-theme="light"] {
       background-color: var(--ui-bg);
     }
 
-    // перепись цвета КНП для Цв.Тем
+    // ПЕРЕКЛЮЧАТЕЛИ
+    // цвета для перекл.3х кнп.Цв.Тем
     .sw3btn-radio__light:checked ~ .sw3btn-slider {
       background-color: var(--ui-act-bg);
     }
@@ -210,6 +211,72 @@ body[data-theme="light"] {
     }
     .sw3btn-radio__neutral:checked ~ .sw3btn-slider {
       background-color: var(--MelonYellow);
+    }
+  }
+  // sw4btn
+  .sw4btn > input[type="radio"]:checked {
+    & + i {
+      background-color: #0f0;
+      background: #00ba00;
+      background: #00ba00;
+      background: #00541f;
+      background: #006633;
+      background: #138808;
+      background: #228b22;
+      background: #006400;
+      + label {
+        background-color: var(--act-dark);
+        + label {
+          background-color: var(--act-dark);
+          + label {
+            background-color: var(--act-dark);
+          }
+        }
+      }
+    } // второе положение
+    & + input[type="radio"] {
+      & + i {
+        background-color: #00f;
+        background: #000080;
+        background: #00008b;
+        & + label,
+        & + label + label,
+        & + label + label + label + label {
+          background: none;
+          background: red;
+          background-color: #b40000;
+          background-color: var(--act-dark);
+        }
+      }
+      // первое положение
+      & + input[type="radio"] {
+        & + i {
+          background-color: #ff0;
+          background-color: #b40000;
+          background-color: var(--act-dark);
+          & + label,
+          & + label + label + label,
+          & + label + label + label + label {
+            background: none;
+            background-color: #b40000;
+            background-color: var(--act-dark);
+          }
+        }
+        // ? 0 положение
+        & + input[type="radio"] {
+          & + i {
+            background-color: #fad201;
+            background-color: var(--act-light);
+            & + label + label,
+            & + label + label + label,
+            & + label + label + label + label {
+              background: none;
+              background-color: #b40000;
+              background-color: var(--act-dark);
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -415,6 +482,12 @@ body[data-theme="light"] {
   // --probCol: #755c48;
   // --probCol: #79553d;
   //
+  // background: #00ba00;
+  //   background: #00541F;
+  //   background: #006633;
+  //   background: #138808;
+  //   background: #228B22;
+  //   background: #006400;
   // background-color: #87a96b; //   Спаржа Крайола
   // background-color: #317f43; //   Сигнальный зеленый
   // background-color: #08457e; // Темно-лазурный

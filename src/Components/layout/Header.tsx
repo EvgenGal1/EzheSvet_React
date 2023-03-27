@@ -13,7 +13,7 @@ import { TitleEl } from "../ui/hintTemplates/TitleEl";
 
 // хук для Цветовых Тем (Тёмная/Сетлая/Средняя)
 import { useTheme } from "../../scripts/hooks/useTheme";
-// переключатель для тем
+// переключатель для Цв.Тем
 import { Switcher3btnTheme } from "../ui/switcher/Switcher3btnTheme";
 
 // хук для Размеров (Большой, Средний, Маленький,Выключен)
