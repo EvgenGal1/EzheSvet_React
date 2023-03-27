@@ -58,10 +58,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    // затемняет сосед. эл. при наведении (меню)
-    &:hover span:not(:hover) {
-      opacity: 0.5;
-    }
     .menu-top__items,
     .menu-bottom__items {
       width: 100px;
@@ -85,6 +81,10 @@
   }
   // ВЕРХНЕЕ МЕНЮ -------------------------------------------------
   &__menu-top {
+    // затемняет сосед. эл. при наведении (меню)
+    &:hover span:not(:hover) {
+      opacity: 0.5;
+    }
     // затемняет сосед. эл. при наведении (подменю)
     &:hover li:not(:hover) {
       opacity: 0.3;
@@ -137,6 +137,10 @@
   // НИЖНЕЕ МЕНЮ -------------------------------------------------
   &__menu-bottom {
     margin-top: 3%;
+    // затемняет сосед. эл. при наведении (меню)
+    &:hover span > div:not(:hover) {
+      opacity: 0.5;
+    }
   }
   // МИНИ СТРЕЛКА (упрощ.откр.) -------------------------------------------------
   .miniArrow {
@@ -144,6 +148,10 @@
     bottom: 5px;
     right: 5px;
     cursor: pointer;
+    span {
+      width: 0% !important;
+      display: inline-block !important;
+    }
   }
 }
 

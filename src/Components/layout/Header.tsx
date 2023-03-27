@@ -43,39 +43,14 @@ export function Header() {
     }
   }, [combinePress, pressCombine]);
 
-  // ЛОГИКА подсказки по наведению мыши
-  const [isHovering, setIsHovering] = useState(false);
+  // сост. подсказки по наведению мыши
+  const [isHovering, setIsHovering] = useState("");
 
-  // ЛОГИКА переключателя Цветовых Тем (dark/light/natural)
+  // подкл. логики переключателя Цветовых Тем (dark/light/natural)
   useTheme();
-  // стат./fn Цветовых Тем (Тёмная/Сетлая/Средняя)
-  // const { theme, setTheme } = useTheme();
-  // const handleDarkTheme = () => {
-  //   setTheme("dark");
-  // };
-  // const handleLightTheme = () => {
-  //   setTheme("light");
-  // };
-  // const handleNaturalTheme = () => {
-  //   setTheme("natural");
-  // };
 
-  // ЛОГИКА переключателя Размеров (big/mid/small/off)
+  // подкл. логики переключателя Размеров (big/mid/small/off)
   useSize();
-  // стат./fn Размеров (Большой/Средний/Маленький/Выключен)
-  // const { size, setSize } = useSize();
-  // const handleBigSize = () => {
-  //   setSize("big");
-  // };
-  // const handleMidSize = () => {
-  //   setSize("mid");
-  // };
-  // const handleSmallSize = () => {
-  //   setSize("small");
-  // };
-  // const handleOffSize = () => {
-  //   setSize("off");
-  // };
 
   return (
     <>
@@ -135,65 +110,78 @@ export function Header() {
                 <span
                   className="menu-bottom__items m-b-items"
                   onMouseEnter={() => {
-                    setIsHovering(!isHovering);
+                    setIsHovering("sw1bnt");
                   }}
                   onMouseLeave={() => {
-                    setIsHovering(!isHovering);
+                    setIsHovering("");
+                  }}
+                  onClick={() => {
+                    setIsHovering("");
                   }}
                 >
                   <Switcher1btn setPressCombine={setPressCombine} />
-                  {isHovering && <TitleEl text={"откл.Доп.Меню"} />}
+                  {isHovering === "sw1bnt" && <TitleEl text={"Доп.Меню"} />}
                 </span>
                 <span
                   className="menu-bottom__items m-b-items"
                   onMouseEnter={() => {
-                    setIsHovering(!isHovering);
+                    setIsHovering("sw2bnt");
                   }}
                   onMouseLeave={() => {
-                    setIsHovering(!isHovering);
+                    setIsHovering("");
                   }}
                 >
                   <Switcher2btn />
-                  {isHovering && <TitleEl text={"не занят"} />}
+                  {isHovering === "sw2bnt" && <TitleEl text={"не занят"} />}
                 </span>
                 {/* переключатель Цветовых Тем (dark/light/natural) */}
                 <span
                   className="menu-bottom__items m-b-items"
                   onMouseEnter={() => {
-                    setIsHovering(!isHovering);
+                    setIsHovering("sw3bnt");
                   }}
                   onMouseLeave={() => {
-                    setIsHovering(!isHovering);
+                    setIsHovering("");
                   }}
                 >
                   <Switcher3btnTheme />
-                  {isHovering && <TitleEl text={"Цв.Темы"} />}
+                  {isHovering === "sw3bnt" && <TitleEl text={"Цв.Темы"} />}
                 </span>
                 <span
                   className="menu-bottom__items m-b-items"
                   onMouseEnter={() => {
-                    setIsHovering(!isHovering);
+                    setIsHovering("sw4bnt");
                   }}
                   onMouseLeave={() => {
-                    setIsHovering(!isHovering);
+                    setIsHovering("");
                   }}
                 >
                   <Switcher4btn />
-                  {isHovering && <TitleEl text={"Размеры"} />}
+                  {isHovering === "sw4bnt" && <TitleEl text={"Размеры"} />}
                 </span>
               </nav>
             )}
           </div>
           {/* врем.кнп.для упрощ.вкл.доп.меню */}
           {!pressCombine && (
-            <div
-              className="miniArrow"
-              onClick={() => {
-                setPressCombine(!pressCombine);
-              }}
-            >
-              &lt;
-            </div>
+            <>
+              <div
+                className="miniArrow"
+                onClick={() => {
+                  setPressCombine(!pressCombine);
+                  setIsHovering("");
+                }}
+                onMouseEnter={() => {
+                  setIsHovering("sw1bnt");
+                }}
+                onMouseLeave={() => {
+                  setIsHovering("");
+                }}
+              >
+                &lt;
+                {isHovering === "sw1bnt" && <TitleEl text={"Доп.Меню"} />}
+              </div>
+            </>
           )}
         </div>
       </header>
