@@ -11,9 +11,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #f4a900;
     border-radius: 50%;
     letter-spacing: -1px;
+    // background-image: url("../../../img/miniElem/circle5.png");
     cursor: pointer;
-    background: blue;
+    .sw1btn__span {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 3px solid #6b0000;
+      border-color: #6b0000 !important;
+    }
+    // .sw1btn__img{
+    //   width: 25px;
+    //   transform: rotate(45deg);
+    //   font-size: 25px;
+    //   filter: opacity(0.5) drop-shadow(0px 0px 0px #4b0000);
+    //   background-image: url("../../../img/miniElem/circle5.png");
+    // }
+    &:hover {
+      .sw1btn__span {
+        // border-radius: 50%;
+        border: 3px solid #2b0000;
+        border-color: #6b0000 !important;
+        background-image: url("../../../img/miniElem/cross.png");
+      }
+    }
+    // &:before {
+    //   content: "1";
+    //   background-image: url("../../../img/miniElem/cross.png");
+    // }
+    // &:after {
+    //   content: "2";
+    // }
   }
 }

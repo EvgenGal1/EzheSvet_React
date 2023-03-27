@@ -44,7 +44,7 @@ export const Switcher3btnTheme = () => {
       </label>
       <input
         id="_dark"
-        className="sw3btn-radio__dark"
+        className="sw3btn-input sw3btn-radio__dark"
         type="radio"
         name="--theme"
         value="_dark"
@@ -59,7 +59,7 @@ export const Switcher3btnTheme = () => {
       </label>
       <input
         id="_neutral"
-        className="sw3btn-radio__neutral"
+        className="sw3btn-input sw3btn-radio__neutral"
         type="radio"
         name="--theme"
         value="_neutral"
@@ -74,7 +74,7 @@ export const Switcher3btnTheme = () => {
       </label>
       <input
         id="_light"
-        className="sw3btn-radio__light"
+        className="sw3btn-input sw3btn-radio__light"
         type="radio"
         name="--theme"
         value="_light"

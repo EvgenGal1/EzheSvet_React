@@ -42,6 +42,7 @@ export const Switcher4btn = () => {
   const handleOffSize = () => {
     setSize("off");
   };
+
   return (
     <div className="sw4btn">
       <input

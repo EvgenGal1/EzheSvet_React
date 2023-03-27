@@ -20,7 +20,16 @@ export const Switcher1btn = ({ setPressCombine }) => {
         value="show"
       />
       <label className="sw1btn-label" htmlFor="show">
-        &#215;
+        {/* &#215; */}
+        <span className="sw1btn__span"></span>
+        {/* <img
+          className="sw1btn__img"
+          // src={require("../../img/logo/ЕжеСветRedBlackWhiteEff.png")}
+          // src={require("../../../img/miniElem/cross.png")}
+          // src={require("../../../img/miniElem/plus.png")}
+          src={require("../../../img/miniElem/circle5.png")}
+          alt=""
+        /> */}
       </label>
     </div>
   );
