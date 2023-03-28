@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 
 // хук для Размеров (Большой, Средний, Маленький,Выключен)
 import { useSize } from "../../../scripts/hooks/useSize";
@@ -7,25 +7,40 @@ import "./Switcher4btn.scss";
 
 export const Switcher4btn = () => {
   // ЛОГИКА отрисовки checkbox в checked по body.data-size
+  // сост.переключателя
   const [checkedBox, setCheckedBox] = useState("");
+  // событие приёма из кнп-ок и запись в сост.
   const handleChange = (nm: string) => {
     setCheckedBox(nm);
   };
+  // опред.начал.Размер из LS и перем.по умолч.
+  const LS = localStorage.getItem("--size");
+  let initilLS = "";
+  // перед рендером опред.и пропис.сост.переключателя
   useLayoutEffect(() => {
-    const dataTheme = document.body.getAttribute("data-size");
-    if (dataTheme === "big") {
+    if (LS === "") {
+      initilLS = "mid";
+      setCheckedBox(initilLS);
+    }
+  }, [checkedBox]);
+  // в rendere опред.переключатель и слежение измен.
+  useEffect(() => {
+    if (LS === "") {
+      initilLS = "mid";
+    }
+    if (LS === "big") {
       setCheckedBox("big");
     }
-    if (dataTheme === "mid") {
+    if (LS === "mid") {
       setCheckedBox("mid");
     }
-    if (dataTheme === "small") {
+    if (LS === "small") {
       setCheckedBox("small");
     }
-    if (dataTheme === "off") {
+    if (LS === "off") {
       setCheckedBox("off");
     }
-  }, []);
+  }, [checkedBox]);
 
   // ЛОГИКА переключателя Размеров (big/mid/small/off)
   // стат./fn Размеров (Большой/Средний/Маленький/Выключен)

@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React /* , { useState, useEffect } */ from "react";
 
 import "./Switcher2btn.scss";
 
@@ -9,7 +9,7 @@ export const Switcher2btn = () => {
   // const handleChange = (nm: string) => {
   //   setCheckedBox(nm);
   // };
-  // useLayoutEffect(() => {
+  // useEffect(() => {
   //   const dataTheme = document.body.getAttribute("data-size");
   //   if (dataTheme === "big") {
   //     setCheckedBox("big");
@@ -23,7 +23,7 @@ export const Switcher2btn = () => {
   //   if (dataTheme === "off") {
   //     setCheckedBox("off");
   //   }
-  // }, []);
+  // }, [checkedBox]);
 
   return (
     <div className="sw2blwh">

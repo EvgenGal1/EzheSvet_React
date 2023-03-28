@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 
 // проверка настроек системы для размеров
 const isPrefersSistem = window?.matchMedia(
@@ -13,7 +13,7 @@ export const useSize = () => {
   ); // big, mid, small, off
   // console.log("LocStr ", size);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     document.body.setAttribute("data-size", size);
     localStorage.setItem("--size", size);
     window.dispatchEvent(new Event("storage"));

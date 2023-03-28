@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 
 // хук для Цветовых Тем (Тёмная/Сетлая/Средняя)
 import { useTheme } from "../../../scripts/hooks/useTheme";
@@ -7,22 +7,37 @@ import "./Switcher3btnTheme.scss";
 
 export const Switcher3btnTheme = () => {
   // ЛОГИКА отрисовки checkbox в checked по body.data-theme
+  // сост.переключателя
   const [checkedBox, setCheckedBox] = useState("");
+  // событие приёма из кнп-ок и запись в сост.
   const handleChange = (nm: string) => {
     setCheckedBox(nm);
   };
+  // опред.начал.Темы из LS и перем.по умолч.
+  const LS = localStorage.getItem("--theme");
+  let initilLS = "";
+  // перед рендером опред.и пропис.сост.переключателя
   useLayoutEffect(() => {
-    const dataTheme = document.body.getAttribute("data-theme");
-    if (dataTheme === "dark") {
+    if (LS === "") {
+      initilLS = "dark";
+      setCheckedBox(initilLS);
+    }
+  }, [checkedBox]);
+  // в rendere опред.переключатель и слежение измен.
+  useEffect(() => {
+    if (LS === "") {
+      initilLS = "dark";
+    }
+    if (LS === "dark") {
       setCheckedBox("dark");
     }
-    if (dataTheme === "light") {
+    if (LS === "light") {
       setCheckedBox("light");
     }
-    if (dataTheme === "natural") {
+    if (LS === "natural") {
       setCheckedBox("natural");
     }
-  }, []);
+  }, [checkedBox]);
 
   // ЛОГИКА переключателя Цветовых Тем (dark/light/natural)
   // стат./fn Цветовых Тем (Тёмная/Сетлая/Средняя)
@@ -36,7 +51,7 @@ export const Switcher3btnTheme = () => {
   const handleNaturalTheme = () => {
     setTheme("natural");
   };
-  // saveCheckedToLocalStorage();
+
   return (
     <div className="sw3btn">
       <label className="sw3btn-label sw3btn__dark" htmlFor="_dark">

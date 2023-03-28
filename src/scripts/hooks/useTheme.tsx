@@ -1,5 +1,5 @@
 // ! по видео https://www.youtube.com/watch?v=2-Iex4XG_Zg
-import { useState, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 
 // проверка настроек системы для темы
 const isThemeSistem = window?.matchMedia(
@@ -15,7 +15,7 @@ export const useTheme = () => {
   ); // dark, light, natural
   // console.log("LocStr ", theme);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     document.body.setAttribute("data-theme", theme);
     localStorage.setItem("--theme", theme);
     window.dispatchEvent(new Event("storage"));
