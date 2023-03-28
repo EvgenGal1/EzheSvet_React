@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 
 // хук для вывода Доп.Меню ч/з Опред.Кобин.Клвш.
@@ -45,6 +45,9 @@ export function Header() {
 
   // сост. подсказки по наведению мыши
   const [isHovering, setIsHovering] = useState("");
+  useEffect(() => {
+    // console.log("isHovering ", isHovering);
+  }, [isHovering]);
 
   // подкл. логики переключателя Цветовых Тем (dark/light/natural)
   useTheme();
