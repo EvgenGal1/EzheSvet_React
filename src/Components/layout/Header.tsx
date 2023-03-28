@@ -62,13 +62,22 @@ export function Header() {
           {/* ЛОГО */}
           <div className="header__logo">
             <Link to="/" className="header__link">
-              <img
-                className="header__img"
-                // src={require("../../img/logo/ЕжеСветRedBlackWhiteEff.png")}
-                src={require("../../img/logo/SuhoEd_mini.png")}
-                alt=""
-              />
-              <h1>СухоЕд</h1>
+              <div className="header__logo-smail">
+                <div className="logo__up">
+                  <p>L. O. G. O.</p>
+                  <p>T. I. P.</p>
+                </div>
+                <img
+                  className="logo__img"
+                  src={require("../../img/logo/ЕжеСветRedBlackWhiteEff.png")}
+                  alt=""
+                />
+                {/* <h1>СухоЕд</h1> */}
+                <div className="logo__down">
+                  <p>T. I. P.</p>
+                  <p>L. O. G. O.</p>
+                </div>
+              </div>
             </Link>
           </div>
           {/* ОБЩ. МЕНЮ */}
