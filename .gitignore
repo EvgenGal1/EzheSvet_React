@@ -30,10 +30,15 @@ vr/
 
 # папки в src
 src/http/*
+src/http/index.ts
+/src/http/index.ts
+/http
+http/
+http/index.ts
 src/models/*
 src/services/*
-src/services/auth.service.ts
-src/services/user.service.ts
+# src/services/auth.service.ts
+# src/services/user.service.ts
 reg.html
 
 # js
