@@ -147,7 +147,9 @@ header {
   height: var(--height);
   width: var(--height);
   label {
-    span {
+    & > span {
+      height: var(--height);
+      width: var(--height);
       svg {
         height: var(--height);
         width: var(--height);
